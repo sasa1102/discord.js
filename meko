@@ -1,0 +1,25 @@
+$ npm install discord.js
+{
+    "token": "ODIzNzU3MDM1Nzk0NzI2OTMz.YFldhQ.LpjHBAggo8AFPe0cQJbqrLaG3yg"
+}
+const Discord = require('discord.js');
+const { token } = require('./token.json');
+const client = new Discord.Client();
+
+// 連上線時的事件
+client.on('ready', () => {
+    console.log(`Logged in as ${client.user.tag}!`);
+});
+
+// 當 Bot 接收到訊息時的事件
+client.on('message', msg => {
+    // 如果訊息的內容是 'XXXX'
+    if (msg.content === '喵') {
+        // 則 Bot 回應 'XXXX'
+        msg.reply('喵');
+    }
+});
+
+client.login(token);
+
+$ node discord.js
